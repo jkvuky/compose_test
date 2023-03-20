@@ -1,10 +1,11 @@
-#Zadanie:    
+# Zadanie:    
   
-1. Stworzyć 3 widgety jak na [img.png] Nazywają się `OrderWidget` i wewnętrznie rozpoznają swój rozmiar, wykorzystaj go i wyświetl ten, który należy  
+1. Stworzyć 3 widgety jak na ![image](img.png) Nazywają się `OrderWidget` i wewnętrznie rozpoznają swój rozmiar, wykorzystaj go i wyświetl ten, który należy  
 2. Long press na widgetcie zaznacza go, tworzy do dookoła niego czarny border o szerokości 2.dp, informacja o tym powinna trafic do Viewmodelu  
-3. Ikonka (i) ma dwa stany, ma informacje lub nie - wykorzystaj Materialowe ikonki, które będą pasować, jedną filled, drugą outlined  
+3. Ikonka (i) ma dwa stany, ma informacje lub nie (hasInformation) - wykorzystaj Materialowe ikonki, które będą względnie pasować, jedną filled, drugą outlined  
+4. Podświetlenie wynika z parmetru isHighlighted
 
-#Wskazówki
+# Wskazówki
 - Jeśli jakieś elementy miałyby zająć Ci za dużo czasu - pomiń je, omówimy je później.  
 - Skup się najpierw na jednym wariancie (najlepiej tym z prawej strony), potem dodaj kolejne  
 - Font możesz użyć domyślny  
@@ -16,35 +17,35 @@
 
 Zadanie sklecone na szybko, w razie problemów proszę o kontakt od razu, spróbujemy naprawić.
 
-#Poniżej specyfikacja UI:
+# Poniżej specyfikacja UI:
 
-##Wymiary:
+## Wymiary:
 Duży : 327x202
 Średni: 254x136
 Mały: 393x59
 
-##Widget duży i średni - padding sekcji górnej
+## Widget duży i średni - padding sekcji górnej
 - 10.dp do krawędzi
 - Nazwa orderu wycentrowana pomiędzy górną sekcją z danymi orderu a dolną jej krawędzią
 - Cena wycentrowana w dolnej części
 - Wszystkie teksty mają max 1 linijke
 - Marginesy między elementami (jeśli są) - Horizontal 5.dp, vertical 8.dp
 
-###Mały widget:
+### Mały widget:
 - lewa sekcja padding do krawędzi 8.dp
 - Marginesy między elementami (jeśli są) - Horizontal 5.dp, vertical 8.dp
 
 
-##Fonty:
+## Fonty:
 Duży widget:
 Male teksty 16.sp, bold
 Duże 24.sp, bold
 
-##Średni widget
+## Średni widget
 Małe teksty: 14.sp, bold
 Duże 24.sp, bold
 
-##Mały widget
+## Mały widget
 Lewa sekcja:
 Duży: 20.sp, bold
 Mały: 14.sp, Medium
