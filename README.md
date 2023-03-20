@@ -1,4 +1,7 @@
 # Zadanie:    
+
+0. Skopiuj to repozytorium i pracuj na swoim.
+  
   
 1. Stworzyć 3 widgety jak na ![image](img.png) Nazywają się `OrderWidget` i wewnętrznie rozpoznają swój rozmiar, wykorzystaj go i wyświetl ten, który należy  
 2. Long press na widgetcie zaznacza go, tworzy do dookoła niego czarny border o szerokości 2.dp, informacja o tym powinna trafic do Viewmodelu  
