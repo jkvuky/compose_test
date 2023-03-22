@@ -48,8 +48,7 @@ fun MediumOrderWidget(
         tableNumber = 1,
         area = "Area 1",
         value = BigDecimal(100.0),
-        hasInformation = true,
-        isSelected = false, orderName = "aaa", isHighlighted = false,
+        hasInformation = true, orderName = "aaa", isHighlighted = false,
     ),
     onPress: () -> Unit = { }
 ) {
@@ -61,8 +60,8 @@ fun MediumOrderWidget(
             .width(254.dp)
             .height(136.dp)
             .border(
-                width = if (model.isSelected) 2.dp else 0.dp,
-                color = if (model.isSelected) Color.Black else Color.Gray.copy(alpha = 0.5f),
+                width = if (model.isHighlighted) 2.dp else 0.dp,
+                color = if (model.isHighlighted) Color.Black else Color.Gray.copy(alpha = 0.5f),
                 shape = RoundedCornerShape(8.dp)
             )
             .clickable(
@@ -88,7 +87,7 @@ fun MediumOrderWidget(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        if (model.isSelected) Color.White
+                        if (model.isHighlighted) Color.White
                         else Color.Yellow
                     )
                     .padding(10.dp),
@@ -99,6 +98,7 @@ fun MediumOrderWidget(
                             text = model.waiter,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
+                            color = Color.Black
                         )
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -107,13 +107,15 @@ fun MediumOrderWidget(
                             Text(
                                 text = model.area,
                                 fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black
                             )
                             Text(
                                 text = "Table #${model.tableNumber}",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(end = 52.dp)
+                                modifier = Modifier.padding(end = 52.dp),
+                                color = Color.Black
                             )
                         }
                     }
@@ -122,7 +124,8 @@ fun MediumOrderWidget(
                         contentDescription = "Info",
                         modifier = Modifier
                             .size(48.dp)
-                            .align(Alignment.CenterEnd)
+                            .align(Alignment.CenterEnd),
+                        tint = Color.Black
                     )
                 }
 
@@ -131,7 +134,8 @@ fun MediumOrderWidget(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    color = Color.Black
                 )
             }
             Box(
@@ -154,7 +158,8 @@ fun MediumOrderWidget(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(2.dp),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    color = Color.Black
                 )
             }
         }

@@ -18,7 +18,6 @@ object DataSource {
       value = BigDecimal("99.24"),
       hasInformation = index == 0,
       isHighlighted = index > 0,
-      isSelected = index > 0
     )
   }.groupBy { it.orderName }
     .mapValues { it.value.first() }
@@ -42,6 +41,5 @@ data class OrderData(
   val waiter: String,
   val value: BigDecimal,
   val hasInformation: Boolean,
-  val isHighlighted: Boolean,
-  val isSelected: Boolean
+  val isHighlighted: Boolean
 )

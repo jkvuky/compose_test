@@ -1,6 +1,5 @@
 package com.example.myapplication.ui.components
 
-import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -34,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,8 +50,7 @@ fun BigOrderWidget(
         tableNumber = 1,
         area = "Area 1",
         value = BigDecimal(100.0),
-        hasInformation = true,
-        isSelected = false, orderName = "aaa", isHighlighted = false,
+        hasInformation = true, orderName = "aaa", isHighlighted = false,
     ),
     onPress: () -> Unit = { }
 ) {
@@ -65,8 +61,8 @@ fun BigOrderWidget(
             .width(327.dp)
             .height(202.dp)
             .border(
-                width = if (model.isSelected) 2.dp else 0.dp,
-                color = if (model.isSelected) Color.Black else Color.Gray.copy(alpha = 0.5f),
+                width = if (model.isHighlighted) 2.dp else 0.dp,
+                color = if (model.isHighlighted) Color.Black else Color.Gray.copy(alpha = 0.5f),
                 shape = RoundedCornerShape(8.dp)
             )
             .clickable(
@@ -103,7 +99,7 @@ fun BigOrderWidget(
                             top.linkTo(parent.top)
                             end.linkTo(parent.end)
                         }
-                        .background(if (model.isSelected) Color.White else Color.Yellow)
+                        .background(if (model.isHighlighted) Color.White else Color.Yellow)
                         .padding(10.dp),
                 ) {
                     Column {
@@ -111,6 +107,7 @@ fun BigOrderWidget(
                             text = model.waiter,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
+                            color = Color.Black
                         )
 
                         Row(
@@ -122,13 +119,15 @@ fun BigOrderWidget(
                                 text = model.area,
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
+                                color = Color.Black
                             )
 
                             Text(
                                 text = "Table #${model.tableNumber}",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(end = 65.dp)
+                                modifier = Modifier.padding(end = 65.dp),
+                                color = Color.Black
                             )
                         }
                         Spacer(modifier = Modifier.height(24.dp))
@@ -137,7 +136,8 @@ fun BigOrderWidget(
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
+                            color = Color.Black
                         )
                         Spacer(modifier = Modifier.height(10.dp))
                     }
@@ -170,13 +170,15 @@ fun BigOrderWidget(
                         text = "PLN ${model.value}",
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        color = Color.Black
                     )
                 }
 
                 Icon(
                     imageVector = infoIcon,
                     contentDescription = "Info",
+                    tint = Color.Black,
                     modifier = Modifier
                         .padding(10.dp)
                         .size(48.dp)

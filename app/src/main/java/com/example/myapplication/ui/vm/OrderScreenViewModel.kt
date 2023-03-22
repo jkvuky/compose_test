@@ -20,7 +20,10 @@ class OrderScreenViewModel : ViewModel() {
   init {
     viewModelScope.launch {
       dataSource.getAllOrders().collect { data ->
-        _orders.value = data
+        _orders.value = data.mapValues {
+          val isSelected = _selectedItems.value.any { selectedItem -> selectedItem.orderName == it.value.orderName }
+          it.value.copy(isHighlighted = isSelected)
+        }
         updateSelectedItems()
       }
     }
@@ -29,13 +32,13 @@ class OrderScreenViewModel : ViewModel() {
   fun toggleSelection(orderId: String) {
     val currentOrder = _orders.value[orderId]
     currentOrder?.let {
-      val updatedOrder = it.copy(isSelected = !it.isSelected)
+      val updatedOrder = it.copy(isHighlighted = !it.isHighlighted)
       _orders.value = _orders.value.toMutableMap().apply { put(orderId, updatedOrder) }
       updateSelectedItems()
     }
   }
 
   private fun updateSelectedItems() {
-    _selectedItems.value = _orders.value.values.filter { it.isSelected }
+    _selectedItems.value = _orders.value.values.filter { it.isHighlighted }
   }
 }
